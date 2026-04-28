@@ -1,0 +1,28 @@
+import destinos.*
+import mensajeros.*
+import empresa.*
+import paquetes.*
+
+describe "test empresas" {
+  test "Contratar a un mensajero" {
+    mensajeria.contratarMensajero(roberto)
+  }
+  test "Despedir a un mensajero" {
+    mensajeria.despedirMensajero(roberto)
+  }
+  test "Despedir a todos" {
+    mensajeria.despedirATodos()
+  }
+  test "analizar si la empresa es grande" {
+    mensajeria.contratarMensajero(roberto)
+    mensajeria.contratarMensajero(matrix)
+    mensajeria.contratarMensajero(neo)
+    assert.that(mensajeria.esGrande())
+  }
+  test "analizar si el primer mensajero puede entregar un paquete" {
+    assert.that(mensajeria.elPrimerMensajeroPuedeEntregar(paquete))
+  }
+  test "saber el peso del ultimo mensajero" {
+    mensajeria.pesoUltimoMensajero()   
+  }
+}
