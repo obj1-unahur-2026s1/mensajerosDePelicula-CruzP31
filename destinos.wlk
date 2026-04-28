@@ -1,6 +1,10 @@
+import mensajeros.*
+
+
+
 object brooklyn {
   method dejaPasar(unMensajero) {
-    return unMensajero.peso() <= 1000
+    return unMensajero.pesoTotal() <= 1000
   }
 }
 object matrix {
