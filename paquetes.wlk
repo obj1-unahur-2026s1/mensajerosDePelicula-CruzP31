@@ -12,6 +12,7 @@ object paquete {
   method precio() {
     return 150
   }
+  method estaPago()= estaPago
 }
 
 object paquetito {

@@ -3,8 +3,8 @@ import paquetes.*
 
 object mensajeria {
     const mensajeros= []
-    method contratarMensajero(UnMensajero) {
-        mensajeros.add(UnMensajero)
+    method contratarMensajero(unMensajero) {
+        mensajeros.add(unMensajero)
     }
     method despedirMensajero(unMensajero) {
         mensajeros.remove(unMensajero)
@@ -21,8 +21,8 @@ object mensajeria {
     method pesoUltimoMensajero() {
       return self.ultimoMensajero().pesoTotal()
     }
-    method pesoTotalDeTodosLosMensajeros()= mensajeros.sum({m =>m.pesoTotal() })
-    method estaElMensajero(unMensajero) {
-      return mensajeros.find(unMensajero)
+    method pesosTotales()= mensajeros.sum({m =>m.pesoTotal() })
+    method alMenosUnMensajeroPuedeEntregar(unPaquete){
+      mensajeros.any({m => unPaquete.puedeSerEntregado(m)})
     }
 }
