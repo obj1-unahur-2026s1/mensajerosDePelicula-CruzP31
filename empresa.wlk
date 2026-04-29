@@ -22,4 +22,7 @@ object mensajeria {
       return self.ultimoMensajero().pesoTotal()
     }
     method pesoTotalDeTodosLosMensajeros()= mensajeros.sum({m =>m.pesoTotal() })
+    method estaElMensajero(unMensajero) {
+      return mensajeros.find(unMensajero)
+    }
 }

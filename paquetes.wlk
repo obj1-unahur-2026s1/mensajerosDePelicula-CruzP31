@@ -9,4 +9,29 @@ object paquete {
   } 
   method registrarPago() {estaPago= true}
   method rechazarPago() {estaPago= false}
+  method precio() {
+    return 150
+  }
+}
+
+object paquetito {
+  var property destino = brooklyn
+  method puedeSerEntregado(unMensajero) {
+    return destino.dejaPasar(unMensajero)
+  }
+  method precio() {
+    return 0
+  }
+  method estaPago()= true
+}
+object paquetonViajero {
+  const destinos= #{}
+  var importeAbonado= 0
+  method precio() = destinos.size()*100
+  method registrarPago(unValor) {
+    importeAbonado = (importeAbonado + unValor).min(self.precio())
+  }
+  method estaPago(){
+    return importeAbonado == self.precio()
+  } 
 }

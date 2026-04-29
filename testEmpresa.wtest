@@ -6,6 +6,7 @@ import vehiculos.*
 describe "test empresas" {
   test "Contratar a un mensajero" {
     mensajeria.contratarMensajero(roberto)
+    assert.that(mensajeria.estaElMensajero(roberto))
   }
   test "Despedir a un mensajero" {
     mensajeria.despedirMensajero(roberto)
