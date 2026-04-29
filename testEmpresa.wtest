@@ -2,7 +2,7 @@ import destinos.*
 import mensajeros.*
 import empresa.*
 import paquetes.*
-
+import vehiculos.*
 describe "test empresas" {
   test "Contratar a un mensajero" {
     mensajeria.contratarMensajero(roberto)
@@ -20,9 +20,15 @@ describe "test empresas" {
     assert.that(mensajeria.esGrande())
   }
   test "analizar si el primer mensajero puede entregar un paquete" {
+    mensajeria.contratarMensajero(roberto)
+    paquete.registrarPago()
+    roberto.vehiculo(camion)
+    camion.cantidadAcoplados(1)
+    paquete.destino(brooklyn)
     assert.that(mensajeria.elPrimerMensajeroPuedeEntregar(paquete))
   }
   test "saber el peso del ultimo mensajero" {
-    mensajeria.pesoUltimoMensajero()   
+    mensajeria.contratarMensajero(roberto)
+    assert.equals(95, mensajeria.pesoUltimoMensajero())
   }
 }
